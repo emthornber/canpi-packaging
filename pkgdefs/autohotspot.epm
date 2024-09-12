@@ -1,0 +1,32 @@
+################################################################################
+#   epm configuration file to create the AutoHotspot package
+#
+#   Note:  Expects ${srcdir} to be defined externally
+#
+# Change/History
+#   03 April, 2022 - E M Thornber
+#   Created
+################################################################################
+#
+# Directories
+$service=/usr/lib/systemd/system
+
+%product AutoHotspot scripts
+%copyright 2022 RaspberryConnect
+%vendor emthornber
+%license COPYING
+%readme README
+%description Shell scripts and service that connect to a known WiFi router or creates an access point
+%version 0.74.1
+
+%requires dhcpcd5
+%requires dnsmasq
+%requires hostapd
+%requires python3-webpy
+
+d 755 root root /usr -
+d 755 root root /usr/bin -
+d 755 root root /usr/lib -
+d 755 root root /usr/lib/systemd -
+d 755 root root ${service} -
+
